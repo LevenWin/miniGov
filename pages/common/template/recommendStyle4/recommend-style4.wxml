@@ -1,0 +1,13 @@
+<import src='../recommendTextInforStyle/recommend-text.wxml'/>
+
+<template name="recommend-style4">
+  <view class='content4'>
+    <view class='top4'>
+      <image-pro src="{{thumbnails['2']['file']}}"></image-pro>
+    </view>
+    <view class='bottom4'>
+      <template is="recommend-text" data="{{title:title,publishTime:'09-08',feature:feature}}"></template>
+    </view>
+  </view>
+
+</template>

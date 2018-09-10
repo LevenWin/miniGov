@@ -1,0 +1,21 @@
+@import "../recommendTextInforStyle/recommend-text.wxss";
+
+.content {
+  height: 200rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8rpx 8rpx;
+}
+.content .left {
+  width: 300rpx;
+  height: 100%;
+}
+.content .left image-pro {
+  height: 100%;
+}
+
+.content .right {
+  flex: 1;
+}

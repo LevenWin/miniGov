@@ -1,0 +1,11 @@
+<view class="container">
+  <category-tab class="tab" tabItems="{{tabItems}}" bindtabItemClick = "tabItemClick" tabViewScrollLeft ="{{scrollLeft}}"></category-tab>
+  <swiper  
+  duration
+  class='content'>
+    <swiper-item wx:for="{{tabItems}}" wx:key="columnId">
+      <home-list listItem="{{item}}" ></home-list>
+    </swiper-item>
+  </swiper>
+</view>
+

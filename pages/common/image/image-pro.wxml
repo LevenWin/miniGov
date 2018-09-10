@@ -1,0 +1,16 @@
+<!--pages/common/image/image-pro.wxml-->
+<view style="width:{{width}}; height:{{height}};">
+  <image wx:if="{{!loaded && !error}}"
+    class='image-pro'
+    src='{{placeImage}}'
+    mode='{{mode}}'
+  >
+    <image class='image-pro-pre' src='{{full+src}}' bindload='_onImageLoad' binderror='_onImageFailed' mode="{{mode}}">
+    </image>
+  </image>
+  <image wx:if="{{loaded && !error}}" class='image-pro fade-in' src='{{full+src}}' mode='{{mode}}'>
+  </image>
+  <view class='errors' wx:if="{{error}}">
+    <text>{{error && error}}</text>
+  </view>
+</view>

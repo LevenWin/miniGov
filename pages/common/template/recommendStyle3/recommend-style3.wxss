@@ -1,0 +1,24 @@
+@import "../recommendTextInforStyle/recommend-text.wxss";
+@import "../mediaTime/media-time.wxss";
+
+.template3 {
+  position: relative;
+  height: 400rpx;
+  margin: 10rpx;
+  background-color: white;
+}
+
+.template3 image-pro {
+  position: relative;
+  width: 100%;
+  height: 300rpx;
+}
+
+.template3 .time{
+  position: absolute;
+  right: 20rpx;
+  top: 360rpx;
+}
+.template3 .template3-bottom {
+  height: 100rpx;
+}

@@ -1,0 +1,6 @@
+<template name="media-time">
+  <view class="media-time">
+  <image src='../../../image/videoTimeArrows.png' mode='widthFix'></image>
+  <text>00:45</text>
+</view>
+</template>

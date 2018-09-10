@@ -1,0 +1,21 @@
+.media-time {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 80rpx;
+  height: 20rpx;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rpx;
+  font-size: 10px;
+  color: white;
+}
+.media-time text {
+  margin-left: 8rpx;
+}
+.media-time image {
+  width: 8rpx;
+  height: 8rpx; 
+}
+ 
+

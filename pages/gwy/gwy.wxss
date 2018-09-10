@@ -1,0 +1,6 @@
+/* pages/gwy/gwy.wxss */
+
+image {
+  width: 100rpx;
+  height: 100rpx;
+}

@@ -1,0 +1,10 @@
+<template name = "recommend-text">
+  <view class="recommend-text-content">
+    <view class='recommend-text-top'>
+      <text>{{title}}</text>
+    </view>
+    <view class='recommend-text-bottom'>
+      <text>{{publishTime}}</text> | <text>{{ feature}}</text>
+    </view>
+  </view>
+</template>

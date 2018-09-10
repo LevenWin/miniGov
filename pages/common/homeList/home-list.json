@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "banner": "../banner/banner",
+    "image-pro": "../image/image-pro"
+  }
+}

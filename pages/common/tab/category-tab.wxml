@@ -1,0 +1,13 @@
+<!--pages/common/category-tab.wxml-->
+<view class='container'>
+    <view class='arrow-more' hover-class='hover'>
+      <text>更多</text>
+      <image src='../../image/columnMenuOpenButton.png' mode='widthFix'></image>
+    </view>
+    <scroll-view id="scrollView" class='content' scroll-x bindscroll="didScroll">
+      <view wx:for="{{tabItems}}" class="item-container {{selectedId == index ? 'selected-item' : '' }}" wx:key="columnId" hover-class='hover' bindtap='itemClick' data-id="{{item.columnId}}" data-index="{{index}}">
+        <text>{{item.title}}</text>
+      </view>
+      <view class='slider' style="left:{{sliderLeft}}rpx"></view>
+    </scroll-view>
+</view>

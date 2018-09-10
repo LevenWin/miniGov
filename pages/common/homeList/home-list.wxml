@@ -1,0 +1,39 @@
+<!--pages/common/homeList/home-list.wxml-->
+<import src="../template/recommendStyle2/recommend-style2.wxml"/>
+<import src="../template/recommendTextInforStyle/recommend-text.wxml"/>
+<import src="../template/recommendStyle4/recommend-style4.wxml"/>
+
+<import src="../template/recommendStyle3/recommend-style3.wxml"/>
+
+
+<scroll-view class='container' scroll-y>
+  <banner items="{{bannerItems}}" currentIndex="{{currentIndex}}"></banner>
+  <view class='section3'>
+    <template is="recommend-style2" wx:for="{{section3.template2}}" wx:key="recommendId" data="{{...item}}">
+    </template>
+    <view class='template2' wx:for="{{section3.template1}}" wx:key="articleId">
+      <template is="recommend-text" data="{{title:item['title'],feature:item['feature'],publishTime:'09-08'}}" ></template>
+    </view>
+
+
+    <view class='template4' >
+      <template class="template4-item" wx:for="{{section3.template4}}" wx:key="articleId" is="recommend-style4" data="{{...item}}">
+      </template>
+    </view>
+    <view class='new-section'>
+      <text>{{newSection.title}}</text>
+      <view wx:for="{{newSection['items']}}" wx:key="recommendId" class='new-section-item'>
+        <image-pro src="{{item['article']['thumbnails']['2']['file']}}"></image-pro>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+
+    <view class='media'>
+      <text>{{section4.title}}</text>
+      <template is="recommend-style3" data="{{...section4['items']['0']['article']}}">
+      </template>
+    </view>
+   
+
+  </view>
+</scroll-view>
