@@ -1,0 +1,13 @@
+<!--pages/common/subGrid/item-grid.wxml-->
+<swiper wx:if="{{items.length > 0}}" class="content" indicator-dots="{{config['indicator-dots']}}"
+ autoplay="{{config['autoplay']}}"
+ circular="{{config['circular']}}"
+ indicator-color="{{config['indicator-color']}}"
+ indicator-active-colo="{{config['indicator-active-color']}}">
+  <swiper-item class = "swiper-item" wx:for="{{[0,1,2]}}" wx:key="*this" wx:for-item="i">
+    <view class='item' wx:for="{{[0,1,2,3,4]}}" wx:key="*this" wx:for-item="j">
+      <image src="{{items[j+ i * 3]['cImage']}}" mode='widthFix'></image>
+      <text>{{items[j+ i * 3]['cTitle']}}</text>
+    </view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,34 @@
+@import "../recommendTextInforStyle/recommend-text.wxss";
+
+.template5 {
+  display: flex;
+  flex-direction: row;
+  height: 150rpx;
+  width: 100%;
+  margin: 10rpx;
+  background-color: white;
+}
+
+.template5 .left {
+  flex: 1;
+}
+
+
+.template5 .right {
+  width: 120rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+  margin-right: 20rpx;
+  font-size: 14px;
+  color: #999;
+}
+
+.template5 .right image {
+  width: 80rpx;
+  height: 80rpx;
+}

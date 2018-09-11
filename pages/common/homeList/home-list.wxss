@@ -2,6 +2,7 @@
 @import "../template/recommendStyle2/recommend-style2.wxss";
 @import "../template/recommendStyle4/recommend-style4.wxss";
 @import "../template/recommendStyle3/recommend-style3.wxss";
+@import "../template/recommendStyle5/recommend-style5.wxss";
 @import "../template/recommendTextInforStyle/recommend-text.wxss";
 
 .container {
@@ -62,11 +63,21 @@ banner {
   margin: 10rpx;
   border-top: 1px solid  rgb(39, 57, 90);
 }
-
-
 .media>text:first-child {
   font-size: 14px;
   color: rgb(39, 57, 90);
+}
+
+.meida-image {
+  height: 200rpx;
+  margin: 10rpx;
+  margin-top: 20rpx;
+}
+.articles {
+  position: absolute;
+
+
+  width: 100%;
 }
 
 

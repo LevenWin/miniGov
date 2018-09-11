@@ -26,6 +26,7 @@ Page({
       this.setData({
         tabItems:items
       })
+      this.loadDetailData(0);
     })
   },
 
@@ -36,8 +37,22 @@ Page({
   
   },
   tabItemClick(e) {
-    console.log(e);
+    this.setData({
+      currentIndex:e.detail
+    })
   },
+  didUpdateIndexByScroll(e) {
+    console.log(e.detail.current)
+    var tab = this.selectComponent("#tab")
+    tab.updateSlider(e.detail.current);
+    this.loadDetailData(e.detail.current);
+  },
+  loadDetailData(index) {
+    var list = this.selectComponent(`#list${index}`)
+    console.log(list)
+    list.loadData()
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */

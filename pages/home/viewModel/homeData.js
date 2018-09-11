@@ -47,6 +47,16 @@ function getSection4(data) {
   items = items.sort((a, b) => {
     return a['position'] > b['position'];
   })
+
+  var template4 = []
+  for (var obj in items) {
+    if (items[obj].recommendTemplate == 4) {
+      template4.push(items[obj]['article'])
+    }
+  }
+
+  section.mediaImage = items[4]['article']['thumbnails']['3']['file'];
+  section.template4 = template4;
   section.items = items
   return section;
 }
@@ -57,11 +67,35 @@ function getNewSection(data) {
   obj.items = recommends;
   return obj;
 }
+
+function filterBannerAndArticle(data) {
+  var items = getValues(data)
+
+  var item = {};
+  var i = -1;
+  items.forEach((value, index) => {
+    if(value.position == 0) {
+      item = value
+      i = index
+    }
+  })
+   
+  if (i >= 0) {
+    items.splice(i, 1)
+  }
+  items = items.sort((a, b) => {
+    return b['publishTime'] - a['publishTime']
+  })
+  console.log(items)
+  return [[item],items]
+}
+
 function getValues(item) {
   var items = [];
   for(var i in item) {
     items.push(item[i])
   }
+  console.log(items)
   return items
 }
 
@@ -79,5 +113,6 @@ module.exports = {
   getTabItems,
   getSection3,
   getNewSection,
-  getSection4
+  getSection4,
+  filterBannerAndArticle,
 }

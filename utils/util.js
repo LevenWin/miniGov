@@ -14,6 +14,15 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function isEmptyObject(obj) {
+  if (JSON.stringify(obj) == '{}') {
+    return true;
+  } else {
+    return false;
+  }
+} 
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  isEmptyObject
 }

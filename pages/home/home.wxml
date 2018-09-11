@@ -1,10 +1,12 @@
 <view class="container">
-  <category-tab class="tab" tabItems="{{tabItems}}" bindtabItemClick = "tabItemClick" tabViewScrollLeft ="{{scrollLeft}}"></category-tab>
+  <category-tab class="tab" tabItems="{{tabItems}}" bindtabItemClick = "tabItemClick" tabViewScrollLeft ="{{scrollLeft}}" id="tab"></category-tab>
   <swiper  
-  duration
-  class='content'>
+  duration='500'
+  class='content' 
+  current="{{currentIndex}}"
+  bindchange='didUpdateIndexByScroll'>
     <swiper-item wx:for="{{tabItems}}" wx:key="columnId">
-      <home-list listItem="{{item}}" ></home-list>
+      <home-list currentIndex = "{{currentIndex}}" listItem="{{item}}" id="list{{index}}"></home-list>
     </swiper-item>
   </swiper>
 </view>

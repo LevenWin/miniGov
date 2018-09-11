@@ -15,7 +15,6 @@ Component({
       type:String,
       value:'aspectFill',
       observer: (newVal, oldVal, changePath) => {
-        console.log(newVal)
       }
     },
     width:{
@@ -49,8 +48,8 @@ Component({
       this.triggerEvent('load', e.detail);
     },
     _onImageFailed: function(e) {
+      // console.log(JSON.stringify(e))
       let msgs = e.detail.errMsg.split('(');
-      console.log(this.properties.src)
       this.setData({
         error: "(" + msgs[msgs.length - 1]
       })

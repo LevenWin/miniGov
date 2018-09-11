@@ -34,7 +34,7 @@ function loadHomeCategory() {
 }
 
 function loadDetailCategory(columnId, typeId) {
-  return request(ApiUrls.COLUMN+columnId+'_'+typeId)
+  return request(ApiUrls.COLUMN+columnId+'_'+typeId+'.json')
 }
 module.exports = {
   loadHome,

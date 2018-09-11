@@ -18,6 +18,10 @@ Component({
           sliderLeft: newVal / app.globalData.config.screen.screenWidth *120
         })
       }
+    },
+    currentIndex:{
+      type: Number,
+      value: 0,
     }
   },
 
@@ -27,7 +31,6 @@ Component({
   data: {
     selectedId:0,
     sliderLeft:0,
-    currentIndex:0
   },
 
   /**
@@ -47,6 +50,7 @@ Component({
         currentIndex:index
       })
     },
+   
     didScroll(e) {
 
     }

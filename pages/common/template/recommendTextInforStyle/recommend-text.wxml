@@ -4,7 +4,7 @@
       <text>{{title}}</text>
     </view>
     <view class='recommend-text-bottom'>
-      <text>{{publishTime}}</text> | <text>{{ feature}}</text>
+      <text>{{publishTime}}</text><text wx:if="{{feature}}"> | {{ feature }}</text>
     </view>
   </view>
 </template>

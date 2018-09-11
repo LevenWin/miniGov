@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "banner": "../banner/banner",
-    "image-pro": "../image/image-pro"
+    "image-pro": "../image/image-pro",
+    "item-grid": "../subGrid/item-grid"
   }
 }

@@ -1,6 +1,7 @@
 // pages/common/homeList/home-list.js
 var viewModel = require('../../home/viewModel/homeData.js')
 var api = require('../../../utils/api.js')
+var util = require('../../../utils/util.js')
 
 Component({
   /**
@@ -12,15 +13,19 @@ Component({
       value:{},
       observer:((newVal, oldVal, changePath) => {
       })
+    },
+    currentIndex: {
+      type: Number,
+      value:0,
+      observer: ((newVal, oldVal, changePath) => {
+        if (newVal !=  oldVal) {
+
+        }
+      })
     }
   },
   ready: function(){
-    if (this.properties.listItem.title == '要闻') {
-      this.setData({
-        isHome: true
-      })
-    }
-    this.loadData()
+    
   },
 
   /**
@@ -28,9 +33,7 @@ Component({
    */
   data: {
     bannerItems:[],
-    section3:{},
-    newSection:{},
-    isHome:false
+    articles:{},
   },
 
   
@@ -38,14 +41,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    loadData() {
-      if (this.data.isHome) {
+    loadData() {  
+      console.log(this.properties.listItem.title, this.data.articles.length == 0)
+
+      if (this.properties.listItem.title == '要闻'
+      && this.data.bannerItems.length == 0) {
         api.loadHome().then(res => {
           var banners = viewModel.getBanners(res);
           var section3 = viewModel.getSection3(res);
           var newSection = viewModel.getNewSection(res)
           var section4 = viewModel.getSection4(res);
-          console.log(section4['items']['0']['article'],324)
           this.setData({
             bannerItems: banners,
             section3: section3,
@@ -53,7 +58,14 @@ Component({
             section4:section4,
           })
         });
-      } else {
+      } else if (this.properties.listItem.title != '要闻' &&util.isEmptyObject(this.data.articles)) {
+        api.loadDetailCategory(this.properties.listItem.columnId, this.properties.listItem.type).then(res => {
+          var [banner, articles] = viewModel.filterBannerAndArticle(res.articles);
+          this.setData({
+            bannerItems: banner,
+            articles: articles
+          })
+        })
 
       }
     },

@@ -4,11 +4,12 @@
 <import src="../template/recommendStyle4/recommend-style4.wxml"/>
 
 <import src="../template/recommendStyle3/recommend-style3.wxml"/>
+<import src="../template/recommendStyle5/recommend-style5.wxml"/>
 
 
 <scroll-view class='container' scroll-y>
-  <banner items="{{bannerItems}}" currentIndex="{{currentIndex}}"></banner>
-  <view class='section3'>
+  <banner items="{{bannerItems}}"></banner>
+  <view class='section3' wx:if="{{section3}}">
     <template is="recommend-style2" wx:for="{{section3.template2}}" wx:key="recommendId" data="{{...item}}">
     </template>
     <view class='template2' wx:for="{{section3.template1}}" wx:key="articleId">
@@ -16,11 +17,12 @@
     </view>
 
 
-    <view class='template4' >
+    <view class='template4' wx:if="{{section3.template4.length > 0}}">
       <template class="template4-item" wx:for="{{section3.template4}}" wx:key="articleId" is="recommend-style4" data="{{...item}}">
       </template>
     </view>
-    <view class='new-section'>
+
+    <view class='new-section' wx:if="{{newSection}}">
       <text>{{newSection.title}}</text>
       <view wx:for="{{newSection['items']}}" wx:key="recommendId" class='new-section-item'>
         <image-pro src="{{item['article']['thumbnails']['2']['file']}}"></image-pro>
@@ -28,12 +30,26 @@
       </view>
     </view>
 
-    <view class='media'>
+    <view class='media' wx:if="{{section4}}">
       <text>{{section4.title}}</text>
       <template is="recommend-style3" data="{{...section4['items']['0']['article']}}">
       </template>
-    </view>
-   
+      <template is="recommend-style5" data="{{...section4['items']['1']['article']}}">
+      </template>
+       <view class='template4'>
+        <template class="template4-item" wx:for="{{section4.template4}}" wx:key="articleId" is="recommend-style4" data="{{...item}}">
+        </template>
+      </view>
 
+      <view class='meida-image'>
+        <image-pro src="201805/25/424931/thumbnail3_424931@2x.jpg?t=1535370186"></image-pro>
+      </view>
+    </view>
   </view>
+  <item-grid></item-grid>
+  <view wx:if="{{articles.length > 0}}" class ="articles">
+     <template is="recommend-style2" wx:for="{{articles}}" wx:key="articleId" data="{{...item}}">
+  </template>
+  </view>
+  
 </scroll-view>
