@@ -16,6 +16,6 @@ page {
   height: 100%;
   }
 category-tab {
-  z-index: 100;
+  z-index: 10;
 }
 

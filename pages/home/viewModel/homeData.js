@@ -62,10 +62,13 @@ function getSection4(data) {
 }
 
 function getNewSection(data) {
-  var obj = data['newSections2']['37']
-  var recommends = getValues(obj['recommends'])
-  obj.items = recommends;
-  return obj;
+  if (data.hasOwnProperty('newSections2')) {
+    var obj = data['newSections2']['37']
+    var recommends = getValues(obj['recommends'])
+    obj.items = recommends;
+    return obj;
+  }
+  return undefined;
 }
 
 function filterBannerAndArticle(data) {
@@ -86,7 +89,6 @@ function filterBannerAndArticle(data) {
   items = items.sort((a, b) => {
     return b['publishTime'] - a['publishTime']
   })
-  console.log(items)
   return [[item],items]
 }
 
@@ -104,8 +106,8 @@ function getTabItems(item) {
   items = items.sort((a, b) => {
     return a['position'] - b['position'];
   })
-  var obj = items.slice(0, 10)
-  return obj;
+  // items = items.slice(0, 10)
+  return items;
 }
 module.exports = {
   getBanners,

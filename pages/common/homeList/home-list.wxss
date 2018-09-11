@@ -74,10 +74,21 @@ banner {
   margin-top: 20rpx;
 }
 .articles {
-  position: absolute;
-
-
+  position: relative;
   width: 100%;
+}
+.load-more {
+  position: relative;
+  height: 80rpx;
+  margin: 0 10rpx;
+}
+.load-more text {
+  display: block;
+  line-height: 80rpx;
+  color: #999;
+  font-size: 16px;
+  background: white;
+  text-align: center;
 }
 
 

@@ -1,0 +1,24 @@
+<!--pages/common/category/category.wxml-->
+<scroll-view class='content {{css}}' scroll-y wx:if="{{selectedItems.length > 0 || unselectedItems.length > 0}}" >
+  <view class='section-header-1'>
+    <text>切换栏目</text>
+    <view>
+      <text>排序删除</text>
+      <text catchtap='hide'>收起</text>
+    </view>
+  </view>
+  <view class='selected-items'>
+    <view wx:for="{{selectedItems}}" wx:key="columnId" class='selected-item'>
+     <text  catchlongpress='deleteItem'  data-item="{{item}}">{{item.title}}</text>
+    </view>
+  </view>
+  <view class='section-header-2'>
+    <text>点击添加更多栏目</text>
+  </view>
+  <view class='unselect-items'>
+    <view class='unselect-item' wx:for="{{unselectedItems}}" wx:key="columnId">
+      <text>{{item.title}}</text>
+      <text bindtap='addItem' data-item="{{item}}">+</text>
+    </view>
+  </view>
+</scroll-view>

@@ -2,12 +2,11 @@
 <import src="../template/recommendStyle2/recommend-style2.wxml"/>
 <import src="../template/recommendTextInforStyle/recommend-text.wxml"/>
 <import src="../template/recommendStyle4/recommend-style4.wxml"/>
-
 <import src="../template/recommendStyle3/recommend-style3.wxml"/>
 <import src="../template/recommendStyle5/recommend-style5.wxml"/>
 
 
-<scroll-view class='container' scroll-y>
+<scroll-view class='container' scroll-y bindscrolltolower="scrollToEnd"> 
   <banner items="{{bannerItems}}"></banner>
   <view class='section3' wx:if="{{section3}}">
     <template is="recommend-style2" wx:for="{{section3.template2}}" wx:key="recommendId" data="{{...item}}">
@@ -46,10 +45,13 @@
       </view>
     </view>
   </view>
-  <item-grid></item-grid>
+  <item-grid wx:if="{{listItem.title == '总理' && articles.length > 0}}"></item-grid>
   <view wx:if="{{articles.length > 0}}" class ="articles">
      <template is="recommend-style2" wx:for="{{articles}}" wx:key="articleId" data="{{...item}}">
   </template>
+  </view>  <view wx:if="{{articles.length > 0}}" class="load-more">
+    <text>正在加载...</text>
   </view>
+
   
 </scroll-view>

@@ -22,7 +22,21 @@ Page({
   loadData() {
     api.loadHomeCategory().then(res => {
       var items = viewModel.getTabItems(res['columns'])
-      items = [{ "title": "要闻", "columnId": "0" }].concat(items);
+      console.log(items,12)
+
+      wx.setStorageSync('category-items', items)
+      var selectedItems = wx.getStorageSync('selected-items')
+      var unselectedItems = wx.getStorageSync('unselected-items')
+
+      if(!selectedItems) {
+        selectedItems = items.slice(0, 10)
+        wx.setStorageSync('selected-items', selectedItems)
+      }
+      if (!unselectedItems) {
+        unselectedItems = items.slice(10, items.length - 10)
+        wx.setStorageSync('unselected-items', unselectedItems)
+      }
+      items = [{ "title": "要闻", "columnId": "0" }].concat(selectedItems);
       this.setData({
         tabItems:items
       })
@@ -39,6 +53,20 @@ Page({
   tabItemClick(e) {
     this.setData({
       currentIndex:e.detail
+    })
+  },
+  showMoreCategory() {
+    var selectedItems = wx.getStorageSync('selected-items')
+    var unselectedItems = wx.getStorageSync('unselected-items')
+    var category = this.selectComponent("#category");
+    console.log(category)
+    category.show(selectedItems, unselectedItems);
+  },
+  didHideCategory() {
+    var selectedItems = wx.getStorageSync('selected-items');
+    var items = [{ "title": "要闻", "columnId": "0" }].concat(selectedItems);
+    this.setData({
+      tabItems: items
     })
   },
   didUpdateIndexByScroll(e) {

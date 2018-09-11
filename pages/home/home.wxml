@@ -1,5 +1,6 @@
+
 <view class="container">
-  <category-tab class="tab" tabItems="{{tabItems}}" bindtabItemClick = "tabItemClick" tabViewScrollLeft ="{{scrollLeft}}" id="tab"></category-tab>
+  <category-tab class="tab" tabItems="{{tabItems}}" bindtabItemClick = "tabItemClick" bindshowMoreCategory="showMoreCategory" tabViewScrollLeft ="{{scrollLeft}}" id="tab"></category-tab>
   <swiper  
   duration='500'
   class='content' 
@@ -10,4 +11,7 @@
     </swiper-item>
   </swiper>
 </view>
+
+<category items="{{tabItems}}" id="category" binddidHideCategory="didHideCategory"></category>
+
 

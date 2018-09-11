@@ -2,6 +2,7 @@
   "navigationBarTitleText": "首页",
   "usingComponents": {
     "category-tab": "/pages/common/tab/category-tab",
-    "home-list":"/pages/common/homeList/home-list"
+    "home-list":"/pages/common/homeList/home-list",
+    "category": "/pages/common/category/category"
   }
 }

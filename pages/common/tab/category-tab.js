@@ -50,6 +50,9 @@ Component({
         currentIndex:index
       })
     },
+    clickMore() {
+      this.triggerEvent('showMoreCategory');
+    },
    
     didScroll(e) {
 

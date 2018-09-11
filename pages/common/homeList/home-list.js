@@ -34,6 +34,8 @@ Component({
   data: {
     bannerItems:[],
     articles:{},
+    loading:false,
+    currentPage:0
   },
 
   
@@ -42,32 +44,77 @@ Component({
    */
   methods: {
     loadData() {  
-      console.log(this.properties.listItem.title, this.data.articles.length == 0)
-
       if (this.properties.listItem.title == '要闻'
       && this.data.bannerItems.length == 0) {
         api.loadHome().then(res => {
+
           var banners = viewModel.getBanners(res);
+
           var section3 = viewModel.getSection3(res);
+
           var newSection = viewModel.getNewSection(res)
+
           var section4 = viewModel.getSection4(res);
           this.setData({
             bannerItems: banners,
             section3: section3,
-            newSection:newSection,
+            newSection:newSection ? newSection : {},
             section4:section4,
+          })
+        }).catch(() => {
+          this.setData({
+            loading: false,
           })
         });
       } else if (this.properties.listItem.title != '要闻' &&util.isEmptyObject(this.data.articles)) {
-        api.loadDetailCategory(this.properties.listItem.columnId, this.properties.listItem.type).then(res => {
+        this.setData({
+          loading: true,
+        })
+        api.loadDetailCategory(this.properties.listItem.columnId, this.data.currentPage).then(res => {
+
+         
           var [banner, articles] = viewModel.filterBannerAndArticle(res.articles);
           this.setData({
             bannerItems: banner,
-            articles: articles
+            articles: articles,
+            currentPage: 1,
+            loading: false,
+          })
+        }).catch(()=>{
+          this.setData({
+            loading:false
           })
         })
-
       }
     },
+
+    loadMore() {
+      if (this.properties.listItem.title != '要闻'
+        && !this.data.loading) {
+        this.setData({
+          loading: true,
+        })
+        api.loadDetailCategory(this.properties.listItem.columnId, this.data.currentPage).then(res => {
+
+
+          var [banner, articles] = viewModel.filterBannerAndArticle(res.articles);
+          this.setData({
+            articles: this.data.articles.concat(articles),
+            currentPage: this.data.currentPage + 1,
+            loading:false,
+          })
+        }).catch(() => {
+          this.setData({
+            loading:false,
+          })
+        })
+      }
+    },
+
+    scrollToEnd(e) {
+      this.loadMore()
+    }
+
+
   }
 })

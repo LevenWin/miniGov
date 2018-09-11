@@ -1,6 +1,6 @@
 <!--pages/common/category-tab.wxml-->
 <view class='container'>
-    <view class='arrow-more' hover-class='hover'>
+    <view class='arrow-more' hover-class='hover' bindtap='clickMore'>
       <text>更多</text>
       <image src='../../image/columnMenuOpenButton.png' mode='widthFix'></image>
     </view>

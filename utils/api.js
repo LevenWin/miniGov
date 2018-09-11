@@ -33,8 +33,8 @@ function loadHomeCategory() {
   return request(ApiUrls.CATEGORY)
 }
 
-function loadDetailCategory(columnId, typeId) {
-  return request(ApiUrls.COLUMN+columnId+'_'+typeId+'.json')
+function loadDetailCategory(columnId, page) {
+  return request(`https://appdyn.www.gov.cn/gov/column.shtml?page=${page}&columnId=${columnId}&categoryId=0`)
 }
 module.exports = {
   loadHome,
