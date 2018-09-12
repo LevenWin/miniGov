@@ -3,7 +3,7 @@
   <view class='section-header-1'>
     <text>切换栏目</text>
     <view>
-      <text>排序删除</text>
+      <text>长按删除</text>
       <text catchtap='hide'>收起</text>
     </view>
   </view>

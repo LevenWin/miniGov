@@ -1,2 +1,44 @@
-<!--pages/gwy/gwy.wxml-->
-<image src='../../image/columnMenuOpenButton.png' mode='widthFix'></image>
+<import src="../common/template/recommendStyle2/recommend-style2.wxml"/>
+<import src="../common/template/recommendTextInforStyle/recommend-text.wxml"/>
+<import src="../common/template/recommendStyle4/recommend-style4.wxml"/>
+<import src="../common/template/recommendStyle3/recommend-style3.wxml"/>
+<import src="../common/template/recommendStyle5/recommend-style5.wxml"/>
+
+
+<scroll-view class="container" scroll-y>
+  <view wx:for="{{items}}" wx:key="sectionId" class='section'>
+    <view class='header'>
+      <view class='header-left'>
+        <icon>0</icon><text>{{item.title}}</text><text>{{'  ' +item.ftitle}}</text>
+      </view>
+      <view class='header-right'>
+        <image src='../../image/statecouncil-arrow.png' mode="widthFix"></image>
+      </view>
+    </view>
+    <view class='template1' wx:if="{{item.article['recommendTemplate'] == 1}}">
+      <template is="recommend-text"  data="{{...item['article']['article']}}"></template>
+    </view>
+
+    <view class='template2' wx:if="{{item['article']['recommendTemplate'] === 2}}">
+      <template is="recommend-style2" data="{{...item['article']['article']}}"></template>
+    </view>
+
+   <template wx:if="{{item.article['recommendTemplate'] == 3}}" is="recommend-style3"  data="{{...item.article['article']}}"></template>
+    <view wx:if="{{item.title == '组织机构'}}" class='member-content'>
+        <view wx:if="item.recommends[1]" class='member'>
+          <text class='text-higlight'>{{item.recommends[1]}}</text>
+        </view>
+        <view wx:if="{{item.recommends[2]}}">
+          <view class='member  member-header'><text class='text-higlight'>部委负责人</text></view>
+          <view class='member' wx:for="{{moreMember ? item.recommends['2'] : [item.recommends['2'][0],item.recommends['2'][1]] }}" ><text>{{item}}</text></view>
+          <view class='member member-more' bindtap='shouwMoreMemo'><text>{{moreMember ? '收起': '查看更多'}}</text></view>
+        </view>
+
+        <view class='member-footer member-header'>
+            
+            <text>国务院组织机构</text>
+        </view>
+    </view>
+
+  </view>
+</scroll-view>

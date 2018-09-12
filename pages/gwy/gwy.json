@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText":"国务院"
+  "navigationBarTitleText":"国务院",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "image-pro":"/pages/common/image/image-pro"
+  }
 }

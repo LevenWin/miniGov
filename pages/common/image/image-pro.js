@@ -9,6 +9,7 @@ Component({
       type:String,
       value:'',
       observer:(newVal, oldVal, changePath) =>{ 
+
       }
     },
     mode:{
@@ -48,7 +49,7 @@ Component({
       this.triggerEvent('load', e.detail);
     },
     _onImageFailed: function(e) {
-      // console.log(JSON.stringify(e))
+      console.log(JSON.stringify(e))
       let msgs = e.detail.errMsg.split('(');
       this.setData({
         error: "(" + msgs[msgs.length - 1]

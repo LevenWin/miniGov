@@ -54,7 +54,7 @@
   line-height: 88rpx;
   color: #DDDDDD;
   font-size: 14px;
-  transition: color 0.2s ease-in-out 0s,font-size 0.2s ease-in-out 0s;
+  /* transition: color 0.2s ease-in-out 0s,font-size 0.2s ease-in-out 0s; */
 }
 .hover {
   background-color: rgb(4, 49, 80);

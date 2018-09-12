@@ -1,18 +1,36 @@
 // pages/gwy/gwy.js
+var api = require('../../utils/api.js') 
+var viewModel = require('../home/viewModel/homeData.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    items:[],
+    moreMember:false
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    api.loadGov().then(res => {
+      var items = viewModel.getGovsItem(res)
+      console.log(items,214)
+      this.setData({
+        items:items,
+      })
+    }).catch(() => {
+
+    });
+  },
+  shouwMoreMemo() {
+    this.setData({
+      moreMember:!this.data.moreMember
+    })
   },
 
   /**

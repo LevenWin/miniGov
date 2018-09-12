@@ -92,6 +92,18 @@ function filterBannerAndArticle(data) {
   return [[item],items]
 }
 
+function getGovsItem(data) {
+  var items = getValues(data['sections']);
+  items = items.sort((a, b) => {
+    return a['position'] - b['position'];
+  })
+  for (var i in items) {
+    var obj = getValues(items[i].recommends)[0]
+    items[i].article = obj
+  }
+  return items
+}
+
 function getValues(item) {
   var items = [];
   for(var i in item) {
@@ -109,6 +121,8 @@ function getTabItems(item) {
   // items = items.slice(0, 10)
   return items;
 }
+
+
 module.exports = {
   getBanners,
   getValues,
@@ -117,4 +131,5 @@ module.exports = {
   getNewSection,
   getSection4,
   filterBannerAndArticle,
+  getGovsItem,
 }
