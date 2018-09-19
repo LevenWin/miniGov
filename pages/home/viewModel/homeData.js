@@ -118,8 +118,27 @@ function getTabItems(item) {
   items = items.sort((a, b) => {
     return a['position'] - b['position'];
   })
-  // items = items.slice(0, 10)
   return items;
+}
+
+function getColumnData(article) {
+  var items = getValues(article.articles)
+  items.sort((a, b) => {
+    return b.publishTime - a.publishTime 
+  })
+  var item = undefined;
+  var i = -1;
+  items.forEach((value, index) => {
+    if (value.position == 0) {
+      item = value
+      i = index
+    }
+  })
+
+  if (i >= 0) {
+    items.splice(i, 1)
+  }
+  return [items, item]
 }
 
 
@@ -132,4 +151,5 @@ module.exports = {
   getSection4,
   filterBannerAndArticle,
   getGovsItem,
+  getColumnData,
 }

@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/gwy/gwy"
+    "pages/gwy/gwy",
+    "pages/person/person",
+    "pages/web/web"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,7 +14,7 @@
   "tabBar": {
     "color": "gray",
     "selectedColor": "blue",
-    "backgroundColor":"#FFFFFF",
+    "backgroundColor": "#FFFFFF",
     "list": [
       {
         "pagePath": "pages/home/home",

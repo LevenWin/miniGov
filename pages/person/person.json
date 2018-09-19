@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "image-pro": "/pages/common/image/image-pro",
+    "item-grid": "/pages/common/subGrid/item-grid"
+  }
+}

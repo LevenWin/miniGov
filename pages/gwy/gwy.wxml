@@ -7,11 +7,11 @@
 
 <scroll-view class="container" scroll-y>
   <view wx:for="{{items}}" wx:key="sectionId" class='section'>
-    <view class='header'>
+    <view class='header' wx:if="{{item.title != '组织机构'}}">
       <view class='header-left'>
         <icon>0</icon><text>{{item.title}}</text><text>{{'  ' +item.ftitle}}</text>
       </view>
-      <view class='header-right'>
+      <view class='header-right' bindtap='seeMore' data-releatedColumnId='{{item.releatedColumnId}}' data-title="{{item.title + ' ' + item.ftitle}}">
         <image src='../../image/statecouncil-arrow.png' mode="widthFix"></image>
       </view>
     </view>
@@ -30,7 +30,7 @@
         </view>
         <view wx:if="{{item.recommends[2]}}">
           <view class='member  member-header'><text class='text-higlight'>部委负责人</text></view>
-          <view class='member' wx:for="{{moreMember ? item.recommends['2'] : [item.recommends['2'][0],item.recommends['2'][1]] }}" ><text>{{item}}</text></view>
+          <view class='member' wx:for="{{moreMember ? item.recommends['2'] : [item.recommends['2'][0],item.recommends['2'][1]] }}"  wx:key="*this"><text>{{item}}</text></view>
           <view class='member member-more' bindtap='shouwMoreMemo'><text>{{moreMember ? '收起': '查看更多'}}</text></view>
         </view>
 

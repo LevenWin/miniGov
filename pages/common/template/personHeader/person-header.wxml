@@ -1,0 +1,8 @@
+<template name="person-header">
+  <view class='person-header-content'>
+    <image-pro src="{{src}}" mode="widthFix"></image-pro>
+    <view class='person-header-info'>
+      <text>{{title}}</text>
+    </view>
+  </view>
+</template>

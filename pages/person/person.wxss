@@ -1,0 +1,27 @@
+/* pages/person/person.wxss */
+
+@import "../common/template/personHeader/person-header.wxss";
+@import "../common/template/recommendStyle2/recommend-style2.wxss";
+@import "../common/template/recommendTextInforStyle/recommend-text.wxss";
+
+page {
+  background-color: #eee;
+}
+.load-more {
+  position: relative;
+  height: 80rpx;
+  margin: 0 10rpx;
+}
+.load-more text {
+  display: block;
+  line-height: 80rpx;
+  color: #999;
+  font-size: 16px;
+  background: white;
+  text-align: center;
+}
+
+.recommend-text {
+  height: 150rpx;
+  margin: 10rpx 10rpx;
+}

@@ -2,7 +2,7 @@
 <import src='../recommendTextInforStyle/recommend-text.wxml'/>
 <template name="recommend-style3">
   <view class="template3">
-   <image-pro src="{{thumbnails['2']['file']}}"></image-pro>
+   <image-pro src="{{thumbnails['2']['file']}}" mode="aspectFill"></image-pro>
     <view class='time'>
       <template is="media-time" time="00:34" wx:if="{{time}}">
       </template>

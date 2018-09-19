@@ -1,0 +1,5 @@
+<!--pages/web/web.wxml-->
+<import src='../../utils/wxParse/wxParse.wxml'/>
+<view class="article" wx:if="{{path}}">
+  <template is='wxParse' data="{{wxParseData:article.nodes}}"/>
+</view>

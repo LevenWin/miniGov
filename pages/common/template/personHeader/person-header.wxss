@@ -1,0 +1,20 @@
+.person-header-content {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.person-header-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+.person-header-info text {
+  font-size: 16px;
+  color: white;
+}
+

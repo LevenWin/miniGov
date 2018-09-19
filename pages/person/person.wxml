@@ -1,0 +1,19 @@
+<!--pages/person/person.wxml-->
+<import src="../common/template/personHeader/person-header.wxml"/>
+<import src="../common/template/recommendStyle2/recommend-style2.wxml"/>
+<import src="../common/template/recommendTextInforStyle/recommend-text.wxml"/>
+
+<scroll-view bindscrolltolower="loadMore" scroll-y>
+  <template is="person-header" wx:if="{{header}}" data="{{title:header.title,src:header.thumbnails['2']['file']}}"></template>
+  <item-grid wx:if="{{isBoss}}"></item-grid>
+  <view wx:for="{{articles}}" wx:key="recommendId" bindtap='clickArticle' data-src='{{item.shareUrl}}' data-path='{{item.path}}'>
+    <template is="recommend-style2" wx:if="{{item.thumbnails}}" data="{{...item}}"></template>
+    <view class='recommend-text' wx:if="{{!item.thumbnails}}">
+      <template is="recommend-text"   data="{{title:item['title'],feature:item['feature'],publishTime:'09-08'}}" ></template>
+    </view>
+  </view>
+  <view wx:if="{{articles.length > 0}}" class="load-more">
+    <text>正在加载...</text>
+  </view>
+
+</scroll-view>

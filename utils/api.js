@@ -40,10 +40,15 @@ function loadDetailCategory(columnId, page) {
  function loadGov() {
    return request(ApiUrls.GovPage)
  }
+
+function loadDetailArticle(path) {
+  return request(DOMAIN+path)
+}
 module.exports = {
   loadHome,
   DOMAIN,
   loadHomeCategory,
   loadDetailCategory,
   loadGov,
+  loadDetailArticle
 }
