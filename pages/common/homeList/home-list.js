@@ -113,8 +113,20 @@ Component({
 
     scrollToEnd(e) {
       this.loadMore()
+    },
+    clickArticle(e) {
+      console.log(e)
+
+      var url = e.detail.path;
+      url = url ? url : e.currentTarget.dataset.path
+      wx.navigateTo({
+        url: '/pages/web/web?path=' + url,
+      })
+    },
+    clickGridItem(e) {
+      wx.navigateTo({
+        url: '/pages/subCategory/subCategory?cId='+e.detail.id + `&title=${e.detail.title}`,
+      })
     }
-
-
   }
 })

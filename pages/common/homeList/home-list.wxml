@@ -7,23 +7,25 @@
 
 
 <scroll-view class='container' scroll-y bindscrolltolower="scrollToEnd"> 
-  <banner items="{{bannerItems}}"></banner>
+  <banner items="{{bannerItems}}" bindclickArticle="clickArticle"></banner>
   <view class='section3' wx:if="{{section3}}">
-    <template is="recommend-style2" wx:for="{{section3.template2}}" wx:key="recommendId" data="{{...item}}">
-    </template>
-    <view class='template2' wx:for="{{section3.template1}}" wx:key="articleId">
+    <view  wx:for="{{section3.template2}}" wx:key="recommendId" bindtap="clickArticle" data-path='{{item.path}}'>
+      <template is="recommend-style2" data="{{...item}}" >
+      </template>
+    </view>
+    
+    <view class='template2' wx:for="{{section3.template1}}" wx:key="articleId" bindtap="clickArticle" data-path='{{item.path}}'>
       <template is="recommend-text" data="{{title:item['title'],feature:item['feature'],publishTime:'09-08'}}" ></template>
     </view>
-
-
-    <view class='template4' wx:if="{{section3.template4.length > 0}}">
-      <template class="template4-item" wx:for="{{section3.template4}}" wx:key="articleId" is="recommend-style4" data="{{...item}}">
-      </template>
+    <view class='template4' wx:if="{{section3.template4.length > 0}}" >
+      <view class="template4-item" wx:for="{{section3.template4}}" wx:key="articleId" bindtap="clickArticle" data-path='{{item.path}}'>
+        <template is="recommend-style4" data="{{...item}}"></template>
+      </view>
     </view>
 
     <view class='new-section' wx:if="{{newSection}}">
       <text>{{newSection.title}}</text>
-      <view wx:for="{{newSection['items']}}" wx:key="recommendId" class='new-section-item'>
+      <view wx:for="{{newSection['items']}}" wx:key="recommendId" class='new-section-item' bindtap="clickArticle" data-path='{{item.path}}'>
         <image-pro src="{{item['article']['thumbnails']['2']['file']}}"></image-pro>
         <text>{{item.title}}</text>
       </view>
@@ -31,13 +33,19 @@
 
     <view class='media' wx:if="{{section4}}">
       <text>{{section4.title}}</text>
-      <template is="recommend-style3" data="{{...section4['items']['0']['article']}}">
-      </template>
-      <template is="recommend-style5" data="{{...section4['items']['1']['article']}}">
-      </template>
-       <view class='template4'>
-        <template class="template4-item" wx:for="{{section4.template4}}" wx:key="articleId" is="recommend-style4" data="{{...item}}">
+      <view bindtap="clickArticle" data-path="{{section4['items']['0']['article']['path']}}">
+        <template is="recommend-style3" data="{{...section4['items']['0']['article']}}" >
         </template>
+      </view>
+      <view bindtap="clickArticle" data-path="{{section4['items']['1']['article']['path']}}">
+        <template is="recommend-style5" data="{{...section4['items']['1']['article']}}">
+      </template>
+      </view>
+       <view class='template4'>
+        <view class="template4-item" wx:for="{{section4.template4}}" wx:key="articleId" bindtap="clickArticle" data-path="{{item['path']}}" >
+          <template is="recommend-style4" data="{{...item}}" >
+          </template>
+        </view>
       </view>
 
       <view class='meida-image'>
@@ -45,10 +53,12 @@
       </view>
     </view>
   </view>
-  <item-grid wx:if="{{listItem.title == '总理' && articles.length > 0}}"></item-grid>
-  <view wx:if="{{articles.length > 0}}" class ="articles">
-     <template is="recommend-style2" wx:for="{{articles}}" wx:key="articleId" data="{{...item}}">
-  </template>
+  <item-grid wx:if="{{listItem.title == '总理' && articles.length > 0}}" bindclickGridItem="clickGridItem"></item-grid>
+  <view wx:if="{{articles.length > 0}}" class ="articles" >
+     <view wx:for="{{articles}}" wx:key="articleId" bindtap="clickArticle" data-path='{{item.path}}'>
+     <template is="recommend-style2"  data="{{...item}}">
+     </template>
+    </view>
   </view>  <view wx:if="{{articles.length > 0}}" class="load-more">
     <text>正在加载...</text>
   </view>

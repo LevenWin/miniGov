@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/gwy/gwy",
     "pages/person/person",
-    "pages/web/web"
+    "pages/web/web",
+    "pages/subCategory/subCategory"
   ],
   "window": {
     "backgroundTextStyle": "light",

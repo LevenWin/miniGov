@@ -41,6 +41,9 @@ Component({
   methods: {
     didChange(e) {
 
+    },
+    clickItem (e) {
+      this.triggerEvent('clickArticle', {'path': e.currentTarget.dataset.path})
     }
   }
 })

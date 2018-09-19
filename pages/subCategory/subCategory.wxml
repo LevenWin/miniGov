@@ -1,0 +1,26 @@
+<import src="../common/template/recommendStyle2/recommend-style2.wxml"/>
+<import src="../common/template/recommendTextInforStyle/recommend-text.wxml"/>
+<import src="../common/template/recommendStyle4/recommend-style4.wxml"/>
+
+
+<scroll-view bindscrolltolower="loadMore" scroll-y>
+  <view wx:for="{{articles}}" wx:key="articleId" bindtap='clickArticle' data-src='{{item.shareUrl}}' data-path='{{item.path}}'>
+    <block wx:if="{{index == 0}}" > 
+        <view class="template4" bindtap="clickArticle" data-path="{{item['path']}}" >
+          <template is="recommend-style4" data="{{...item}}" >
+          </template>
+        </view>
+    </block>
+    <block wx:else>
+      <template is="recommend-style2" wx:if="{{item.thumbnails}}" data="{{...item}}"></template>
+      <view class='recommend-text' wx:if="{{!item.thumbnails}}">
+        <template is="recommend-text"   data="{{title:item['title'],feature:item['feature'],publishTime:'09-08'}}" ></template>
+      </view>
+    </block>
+  </view>
+
+  <view wx:if="{{articles.length > 0}}" class="load-more">
+    <text>正在加载...</text>
+  </view>
+
+</scroll-view>

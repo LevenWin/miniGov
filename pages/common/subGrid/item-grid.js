@@ -90,6 +90,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    clickItem(e) {
+      this.triggerEvent('clickGridItem', {"id": e.currentTarget.dataset.id,"title":e.currentTarget.dataset.title})
+    }
   }
 })

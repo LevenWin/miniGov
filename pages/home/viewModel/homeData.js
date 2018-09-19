@@ -140,7 +140,13 @@ function getColumnData(article) {
   }
   return [items, item]
 }
-
+function getSubCategory(data) {
+  var articles = getValues(data.articles)
+  articles = articles.sort((a, b) => {
+    return a['position'] - b['position'];
+  });
+  return articles;
+}
 
 module.exports = {
   getBanners,
@@ -152,4 +158,5 @@ module.exports = {
   filterBannerAndArticle,
   getGovsItem,
   getColumnData,
+  getSubCategory,
 }

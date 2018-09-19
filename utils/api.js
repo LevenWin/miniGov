@@ -44,11 +44,16 @@ function loadDetailCategory(columnId, page) {
 function loadDetailArticle(path) {
   return request(DOMAIN+path)
 }
+
+function loadSubcategory(cId, pageNum) {
+  return request(DOMAIN + `columns/columnCategory_${cId}_${pageNum}.json`)
+}
 module.exports = {
   loadHome,
   DOMAIN,
   loadHomeCategory,
   loadDetailCategory,
   loadGov,
-  loadDetailArticle
+  loadDetailArticle,
+  loadSubcategory,
 }
