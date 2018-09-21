@@ -16,6 +16,10 @@ Component({
       value:0,
       observer: (newVal, oldVal, changePath) => {
       } 
+    },
+    shouldShowInfo:{
+      type:Boolean,
+      value:true
     }
   },
 
@@ -30,7 +34,7 @@ Component({
       "interval":3000,
       "duration":500,
       "circular":true,
-      "indicator-active-color":"#dddddd",
+      "indicator-active-color":"#999999",
       "indicator-color":"#eeeeee"
     }
   },

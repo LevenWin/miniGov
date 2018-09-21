@@ -4,7 +4,8 @@
     "pages/gwy/gwy",
     "pages/person/person",
     "pages/web/web",
-    "pages/subCategory/subCategory"
+    "pages/subCategory/subCategory",
+    "pages/service/service"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,6 +27,12 @@
       {
         "pagePath": "pages/gwy/gwy",
         "text": "国务院",
+        "iconPath": "image/tabBarStateIcon.png",
+        "selectedIconPath": "image/tabBarStateIconSelected.png"
+      },
+      {
+        "pagePath": "pages/service/service",
+        "text": "服务",
         "iconPath": "image/tabBarStateIcon.png",
         "selectedIconPath": "image/tabBarStateIconSelected.png"
       }

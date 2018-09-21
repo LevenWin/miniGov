@@ -4,12 +4,13 @@ var ApiUrls = {
   HOME: DOMAIN+'home.json',
   CATEGORY: DOMAIN + 'source.json',
   COLUMN: DOMAIN + 'columns/column_',
-  GovPage: DOMAIN + 'premier.json'
+  GovPage: DOMAIN + 'premier.json',
+  Service: 'https://appdyn.www.gov.cn/gov/service.shtml'
 }
 
 function request(url,params,method = 'GET') {
   return new Promise((resolve, reject) => {
-    console.log(url)
+    console.log(url, params)
     wx.request({
       url: url,
       method:method,
@@ -48,6 +49,9 @@ function loadDetailArticle(path) {
 function loadSubcategory(cId, pageNum) {
   return request(DOMAIN + `columns/columnCategory_${cId}_${pageNum}.json`)
 }
+function loadMainservice() {
+  return request("https://appdyn.www.gov.cn/gov/service.shtml?groupName=310100&timer=1537525416552&tokens=Q0itdkTOwjso54wNYmfxc5pTbHjJOtqqfsGVc/XwFMk8vkI/esL759MZ1Vytx0nw" )
+}
 module.exports = {
   loadHome,
   DOMAIN,
@@ -56,4 +60,5 @@ module.exports = {
   loadGov,
   loadDetailArticle,
   loadSubcategory,
+  loadMainservice,
 }

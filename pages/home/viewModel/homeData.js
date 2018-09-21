@@ -147,7 +147,32 @@ function getSubCategory(data) {
   });
   return articles;
 }
+function getService(data) {
+  var service = {}
+  // banner
+  var articles = getValues(data.sections['30']['recommends']).sort((a, b) => {
+      return a.position - b.position;
+  }) 
+  var res = [];
+  for (var a in articles) {
+    res.push(articles[a]['article']);
+  }
+  service['banners'] = res
+  res = [];
 
+  // service tag
+  var tags = getValues(data.sections['31']['recommends']).sort((a, b) => {
+    return a.position - b.position;
+  }); 
+
+  for (var a in tags) {
+    res.push(tags[a]['article']);
+  }
+  service['tags'] = res
+  res = [];
+  console.log(service,'service')
+  return service;
+}
 module.exports = {
   getBanners,
   getValues,
@@ -159,4 +184,5 @@ module.exports = {
   getGovsItem,
   getColumnData,
   getSubCategory,
+  getService,
 }

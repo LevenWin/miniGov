@@ -1,0 +1,23 @@
+<!--pages/Service/service.wxml-->
+<scroll-view scroll-y>
+  <banner wx:if="{{service.banners}}" items="{{service.banners}}" bindclickArticle="clickArticle" shouldShowInfo="{{false}}"></banner>
+
+  <view class='service-tag'>
+    <view class='service-tag-item' wx:for="{{service.tags}}" wx:key="articleId" hover-class='hover'>
+      <image-pro src="{{item.thumbnails['2']['file']}}" mode="widthFix"></image-pro>
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+
+  <view class='service-news'>
+    <view class='left'>
+      <text>服务</text>
+      <text>资讯</text>
+    </view>
+    <view class='right'>
+      <swiper>
+        <swiper-item></swiper-item>
+      </swiper>
+    </view>
+  </view>
+</scroll-view>
