@@ -1,0 +1,15 @@
+<!--pages/service/view/verticalArticle/vertical-article.wxml-->
+<view class='content'>
+  <swiper vertical='true' autoplay='true'
+duration='500'
+interval='3000'
+circular='true'>
+  <swiper-item wx:for="{{articles}}" wx:key="">
+    <view class='item-content'>
+      <view class='item'>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+</view>

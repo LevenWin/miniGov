@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "banner": "../common/banner/banner",
-    "image-pro": "../common/image/image-pro"
+    "image-pro": "../common/image/image-pro",
+    "vertical-article": "view/verticalArticle/vertical-article"
   }
 }

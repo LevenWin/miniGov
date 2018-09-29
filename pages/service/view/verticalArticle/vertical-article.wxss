@@ -1,0 +1,22 @@
+
+.content {
+  position: absolute;
+  left: 0rpx;
+  right: 20rpx;
+  top: 15rpx;
+  bottom: 15rpx;
+  overflow: hidden;
+}
+
+.item-content {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80rpx;
+}
+
+
+

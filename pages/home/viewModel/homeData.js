@@ -170,6 +170,47 @@ function getService(data) {
   }
   service['tags'] = res
   res = [];
+  //  service news
+  var news = getValues(data.sections['32']['recommends']).sort((a, b) => {
+    return a.position - b.position;
+  }); 
+  for (var a in news) {
+    res.push(news[a]['article']);
+  }
+  service['news'] = res;
+  res = [];
+
+  // service info
+  res = data.sections['33']['appinfo'].sort((a, b) => {
+    return a.orderId - b.orderId;
+  });
+  var info = {};
+  info['info'] = res;
+  info['ftitle'] = data.sections['33']['ftitle'];
+  service['info'] = info;
+
+  // local info
+  res = data.sections['35']['appinfo'].sort((a, b) => {
+    return a.orderId - b.orderId;
+  });
+  var info = {};
+  info['info'] = res;
+  info['ftitle'] = data.sections['35']['ftitle'];
+  service['local'] = info;
+  res = [];
+
+  // zhuanti 
+  var zhuanti = getValues(data.sections['34']['recommends']).sort((a, b) => {
+    return a.position - b.position;
+  });
+  for (var a in zhuanti) {
+    res.push(zhuanti[a]['article']);
+  }
+  zhuanti = {};
+  zhuanti['article'] = res;
+  zhuanti['ftitle'] = data.sections['34']['ftitle'];
+  service['zhuanti'] = zhuanti;
+  res = [];
   console.log(service,'service')
   return service;
 }

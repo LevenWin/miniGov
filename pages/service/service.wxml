@@ -15,9 +15,52 @@
       <text>资讯</text>
     </view>
     <view class='right'>
-      <swiper>
-        <swiper-item></swiper-item>
-      </swiper>
+      <vertical-article articles="{{service.news}}"></vertical-article>
     </view>
   </view>
+
+  <view class='info'>
+    <view class='info-header'>
+      <text class='left'>{{service.info.ftitle}}</text>
+      <view class='right'>
+        <!-- <text>更多</text>
+         <image src='../../image/statecouncil-arrow.png' mode="widthFix"></image> -->
+      </view>
+    </view>
+    <view class='info-content'>
+      <view class='info-content-item' wx:for="{{service.info.info}}" wx:key="orderId">
+        <image src="{{item.iconUrl}}" mode="widthFix"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class='info'>
+    <view class='zhuanti-header'>
+      <text>{{service.zhuanti.ftitle}}</text>
+    </view>
+    <scroll-view scroll-x class='zhuanti-content'> 
+      <view wx:for="{{service.zhuanti['article']}}"  wx:key ="articleId" class='zhuanti-item'>
+        <image-pro src="{{item.thumbnails['2']['file']}}"></image-pro>
+      </view>    
+    </scroll-view>
+  </view>
+
+  <view class='info'>
+    <view class='info-header'>
+      <text class='left'>{{service.local.ftitle}}</text>
+      <view class='right'>
+        <!-- <text>更多</text>
+         <image src='../../image/statecouncil-arrow.png' mode="widthFix"></image> -->
+      </view>
+    </view>
+    <view class='info-content'>
+      <view class='info-content-item' wx:for="{{service.local.info}}" wx:key="orderId">
+        <image src="{{item.iconUrl}}" mode="widthFix"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+
 </scroll-view>
