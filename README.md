@@ -7,6 +7,7 @@
 <img width="250"  src="https://github.com/LevenWin/miniGov/blob/master/preview/2.jpg"/>
 <img width="250"  src="https://github.com/LevenWin/miniGov/blob/master/preview/3.jpg"/>
 <img width="250"  src="https://github.com/LevenWin/miniGov/blob/master/preview/4.jpg"/>
+<img width="250"  src="https://github.com/LevenWin/miniGov/blob/master/preview/5.jpg"/>
 </div>
 
 
